@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Category {
+  PIWO
+  WODKA
+  WINO
+  PRZEKASKI
+  NAPOJE_BEZALKOHOLOWE
+}
+
+enum OrderStatus {
+  NOWE // złożone i (zwykle) opłacone, czeka na przyjęcie przez kuriera
+  PRZYJETE // kurier przyjął zamówienie
+  W_ZAKUPACH // kurier robi zakupy w punkcie koncesjonowanym
+  W_DRODZE // kurier jedzie do klienta
+  DOSTARCZONE
+  ANULOWANE
+}
+
+enum PaymentStatus {
+  OCZEKUJE
+  OPLACONE
+  NIEUDANE
+  ZWROCONE
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  brand       String
+  slug        String   @unique
+  category    Category
+  volumeMl    Int? // pojemność w ml (dla przekąsek może być null -> waga w gramach w opisie)
+  weightG     Int? // waga w gramach (dla przekąsek/napojów w opakowaniach stałych)
+  abv         Float? // zawartość alkoholu w % (null dla produktów bezalkoholowych)
+  country     String? // kraj pochodzenia
+  priceCents  Int // cena w groszach, np. 1299 = 12,99 zł
+  imageUrl    String
+  description String?
+  inStock     Boolean  @default(true)
+  featured    Boolean  @default(false) // pokazywany w sekcji bestsellerów
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orderItems OrderItem[]
+}
+
+model Courier {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  orders Order[]
+}
+
+model Order {
+  id     String @id @default(cuid())
+  number Int    @default(autoincrement()) // krótki, czytelny numer zamówienia
+
+  // Dane klienta i dostawy
+  customerName    String
+  phone           String
+  deliveryAddress String
+  deliveryCity    String // miasto/dzielnica klienta (strefa objęta prohibicją)
+  notes           String?
+
+  // Zgody wymagane prawnie w procesie checkout
+  wiekPotwierdzony             Boolean @default(false)
+  pelnomocnictwoZaakceptowane  Boolean @default(false) // zgoda na zakup w imieniu klienta
+  regulaminZaakceptowany       Boolean @default(false)
+
+  // Zakupy
+  items        OrderItem[]
+  deliveryFeeCents Int @default(0)
+  totalCents   Int
+
+  // Płatność — zawsze 100% z góry, bez płatności gotówką przy odbiorze
+  paymentMethod   String // "card" | "blik"
+  paymentStatus   PaymentStatus @default(OCZEKUJE)
+  paymentIntentId String?
+
+  // Realizacja
+  status    OrderStatus @default(NOWE)
+  courierId String?
+  courier   Courier?    @relation(fields: [courierId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+  id                   String @id @default(cuid())
+  orderId              String
+  order                Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId            String
+  product              Product @relation(fields: [productId], references: [id])
+  quantity             Int
+  priceCentsAtPurchase Int // zamrożona cena z momentu zamówienia
+}
