@@ -31,8 +31,7 @@ export async function createPayment(
 
   // Stripe obsługuje BLIK jako metodę płatności dla kont rozliczających się
   // w PLN — zob. dokumentację Stripe dot. lokalnych metod płatności w Polsce.
-  const paymentMethodTypes: Stripe.PaymentIntentCreateParams.PaymentMethodType[] =
-    method === "blik" ? ["blik"] : ["card"];
+  const paymentMethodTypes = method === "blik" ? ["blik"] : ["card"];
 
   const intent = await stripe.paymentIntents.create({
     amount: amountCents,
