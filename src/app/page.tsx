@@ -13,6 +13,9 @@ export default async function HomePage() {
   return (
     <div>
       {/* HERO */}
+
+/*
+      
       <section className="relative overflow-hidden border-b border-line/60 bg-grid-fade">
         <div
           aria-hidden
@@ -82,6 +85,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+*/
+      
       {/* KATEGORIE */}
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <p className="eyebrow mb-5">Przeglądaj</p>
