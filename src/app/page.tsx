@@ -12,7 +12,7 @@ export default async function HomePage() {
 
   return (
     <div>
-      {/* HERO */}
+      {/* HERO 
 
 
       
@@ -85,7 +85,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-
+*/}
       
       {/* KATEGORIE */}
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
