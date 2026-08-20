@@ -19,7 +19,7 @@ export type SampleProduct = {
 // realny asortyment, prawdziwe marki (z odpowiednimi licencjami) i zdjęcia
 // produktowe przed uruchomieniem produkcyjnym.
 export const sampleProducts: SampleProduct[] = [
- {
+  {
     "name": "Corona Extra",
     "brand": "Corona",
     "slug": "corona-extra-330",
@@ -27,7 +27,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 330,
     "abv": 4.5,
     "country": "Meksyk",
-    "priceCents": 699,
+    "priceCents": 849,
     "imageUrl": "/products/corona.png",
     "description": "Lekki, meksykański lager. Najlepiej smakuje mocno schłodzony, z cząstką limonki.",
     "featured": true
@@ -40,7 +40,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 400,
     "abv": 4.6,
     "country": "Polska",
-    "priceCents": 750,
+    "priceCents": 849,
     "imageUrl": "/products/garage.png",
     "description": "Orzeźwiający napój piwny o wyraźnym, słodko-kwaśnym smaku jagody."
   },
@@ -52,7 +52,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 500,
     "abv": 5.7,
     "country": "Polska",
-    "priceCents": 450,
+    "priceCents": 549,
     "imageUrl": "/products/lomza.png",
     "description": "Klasyczne piwo z regionalnego browaru, wyróżniające się pełnym, chmielowym smakiem.",
     "featured": true
@@ -65,7 +65,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 500,
     "abv": 40,
     "country": "Polska",
-    "priceCents": 3799,
+    "priceCents": 4599,
     "imageUrl": "/products/stock.png",
     "description": "Sześciokrotnie destylowana wódka premium o niezwykle łagodnym smaku.",
     "featured": true
@@ -78,7 +78,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 500,
     "abv": 28,
     "country": "Polska",
-    "priceCents": 3499,
+    "priceCents": 4199,
     "imageUrl": "/products/soplica.png",
     "description": "Słodko-kwaśna, owocowa nalewka z nutą dojrzałych cytryn."
   },
@@ -90,7 +90,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 750,
     "abv": 11.5,
     "country": "USA",
-    "priceCents": 2999,
+    "priceCents": 3599,
     "imageUrl": "/products/carlo.png",
     "description": "Czerwone, wytrawne wino o aromacie ciemnych owoców i czekolady.",
     "featured": true
@@ -103,7 +103,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 750,
     "abv": 12.5,
     "country": "Australia",
-    "priceCents": 3499,
+    "priceCents": 4699,
     "imageUrl": "/products/jacob.png",
     "description": "Białe wino musujące wytrawne."
   },
@@ -115,7 +115,7 @@ export const sampleProducts: SampleProduct[] = [
     "volumeMl": 750,
     "abv": 11.5,
     "country": "Włochy",
-    "priceCents": 4999,
+    "priceCents": 5799,
     "imageUrl": "/products/martini.png",
     "description": "Wytrawne wino musujące o aromatach jabłka i tymianku, idealne na toast."
   },
@@ -126,7 +126,7 @@ export const sampleProducts: SampleProduct[] = [
     "category": "PRZEKASKI",
     "weightG": 130,
     "country": "Polska",
-    "priceCents": 799,
+    "priceCents": 949,
     "imageUrl": "/products/lays.png",
     "description": "Złociste, chrupiące chipsy ziemniaczane z dodatkiem soli.",
     "featured": true
@@ -138,7 +138,7 @@ export const sampleProducts: SampleProduct[] = [
     "category": "PRZEKASKI",
     "weightG": 140,
     "country": "Polska",
-    "priceCents": 1199,
+    "priceCents": 1299,
     "imageUrl": "/products/felix.png",
     "description": "Starannie wyselekcjonowane, prażone i solone orzeszki ziemne."
   },
@@ -149,7 +149,7 @@ export const sampleProducts: SampleProduct[] = [
     "category": "PRZEKASKI",
     "weightG": 300,
     "country": "Polska",
-    "priceCents": 750,
+    "priceCents": 899,
     "imageUrl": "/products/lajkonik.png",
     "description": "Tradycyjnie wypiekane, chrupiące paluszki z solą."
   },
@@ -160,7 +160,7 @@ export const sampleProducts: SampleProduct[] = [
     "category": "NAPOJE_BEZALKOHOLOWE",
     "volumeMl": 500,
     "country": "Polska",
-    "priceCents": 350,
+    "priceCents": 399,
     "imageUrl": "/products/mocny.png",
     "description": "Krystalicznie czysta woda z mocnym orzeźwiającym gazem."
   },
@@ -171,7 +171,7 @@ export const sampleProducts: SampleProduct[] = [
     "category": "NAPOJE_BEZALKOHOLOWE",
     "volumeMl": 500,
     "country": "Polska",
-    "priceCents": 599,
+    "priceCents": 649,
     "imageUrl": "/products/cola.png",
     "description": "Kultowy napój gazowany o niepodrabialnym smaku.",
     "featured": true
@@ -183,7 +183,7 @@ export const sampleProducts: SampleProduct[] = [
     "category": "NAPOJE_BEZALKOHOLOWE",
     "volumeMl": 250,
     "country": "Austria",
-    "priceCents": 799,
+    "priceCents": 899,
     "imageUrl": "/products/red.png",
     "description": "Dodaje skrzydeł — popularny energetyk z tauryną i kofeiną."
   }
